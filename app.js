@@ -12,15 +12,20 @@ window.onload = () => {
 }
 
 function main(){
-    const root = document.getElementById('root')
-    const btn = document.getElementById('change-btn')
-    const output = document.getElementById('output')
+    const root = document.getElementById('root');
+    const changeBtn = document.getElementById('change-btn');
+    const output = document.getElementById('output');
+    const copyBtn = document.getElementById('copy-btn');
 
-    btn.addEventListener('click', function(){
+    changeBtn.addEventListener('click', function(){
         const bgColor = generateRGBColor()
         root.style.backgroundColor = bgColor;
         output.value = bgColor;
-    })
+    });
+
+    copyBtn.addEventListener('click', function(){
+        navigator.clipboard.writeText(output.value);
+    });
 }
 
 // Step 2 - Random color genertor function
